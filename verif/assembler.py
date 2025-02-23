@@ -67,6 +67,7 @@ opcode = {
  "sra": "0110011",
  "or": "0110011",
  "and": "0110011",
+ "halt": "1111111",
 }
 
 # bits 12-14
@@ -212,6 +213,11 @@ def translate(instruction):
 # translates an instruction to binary (assembly to machine code)
 def translate_instruction(instruction):
 	instr = instruction.split(" ")[0]
+
+	if(instr == "halt"):
+		binary = opcode[instr]
+		binary += 25 * '0'
+		return binary
 
 	rd = instruction.split(" ")[1].split(",")[0]
 	rd = bin(int(rd[1:]))[2:].zfill(5)
