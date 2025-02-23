@@ -16,6 +16,7 @@ module riscv #(
     output logic [8:0] addr,
     output logic [DATA_W-1:0] wr_data,
     output logic [DATA_W-1:0] rd_data
+
 );
 
   logic [6:0] opcode;
