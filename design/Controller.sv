@@ -20,6 +20,7 @@ module Controller (
     output logic JalrSel, // flag para Jalr
     output logic Halt,
     output logic RWSel
+
 );
 
   logic [6:0] R_TYPE, I_TYPE, LW, SW, BR, JAL, JALR, HALT; //adicionado as instrucões do tipo I, JAL e JALR e pseudo-instrução HALT
