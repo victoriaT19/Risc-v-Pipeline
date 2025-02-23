@@ -67,6 +67,7 @@ module Memoria32 (
   assign inS0 = Datain[7:0];
 
   //Bancos de memórias (cada banco possui 65536 bytes)
+
   //0
   ramOnChip32 #(
       .ramSize(65536),
