@@ -33,7 +33,6 @@ module imm_Gen (
       7'b0010011:  /*I-type -> formato do valor imediato das instruções de tipo I*/
       Imm_out = {inst_code[31] ? 20'hFFFFF : 20'b0, inst_code[31:20]};
 
-
       default: Imm_out = {32'b0};
 
     endcase
