@@ -10,17 +10,6 @@ module ALUController (
     output logic [3:0] Operation  // operation selection for ALU
 );
 
-/*
-11	SLTI	((ALUOp == 2'b10) && (Funct3 == 3'b010) && (Funct7 == 7'b0000000)) essa já ta implementada com slt
-12	ADDI	((ALUOp == 2'b10) && (Funct3 == 3'b000) && (Funct7 == 7'b0000000)) essa já ta implementada com o add
-13	SLLI	((ALUOp == 2'b10) && (Funct3 == 3'b001) && (Funct7 == 7'b0000000)) já implemntei
-14	SRLI	((ALUOp == 2'b10) && (Funct3 == 3'b101) && (Funct7 == 7'b0000000)) implementada
-15	SRAI	((ALUOp == 2'b10) && (Funct3 == 3'b101) && (Funct7 == 7'b0100000)) IMPLEMENTADA
-3	BNE	((ALUOp == 2'b01) && (Funct3 == 3'b001)) feito
-4	BLT	((ALUOp == 2'b01) && (Funct3 == 3'b100)) feita 
-5	BGE	((ALUOp == 2'b01) && (Funct3 == 3'b101)) feito
-*/
-
 	always_comb
 		begin
 		     if(ALUOp == 2'b00)begin // mapeando as instruções de load/store e jalr para a operação de ADD
@@ -80,33 +69,5 @@ module ALUController (
                      end
 		end
 
-/*
-  assign Operation[0] = ((ALUOp == 2'b10) && (Funct3 == 3'b110)) ||  // R\I-or 
-      ((ALUOp == 2'b10) && (Funct3 == 3'b100)) || // XOR
-      ((ALUOp == 2'b10) && (Funct3 == 3'b010)); || // R\I-<  SLT
-      ((ALUOp == 2'b10) && (Funct3 == 3'b101) && (Funct7 == 7'b0000000)) ||  // SLRI
-      (ALUOp == 2'b01) ||  // BEQ
-      ((ALUOp == 2'b01) && (Funct3 == 3'b100)) // BLT
-
-  assign Operation[1] = (ALUOp == 2'b00) ||  // LW\SW feito
-      ((ALUOp == 2'b10) && (Funct3 == 3'b000)) ||  // R\I-add feito
-      ((ALUOp == 2'b10) && (Funct3 == 3'b100)) || // XOR
-      ((ALUOp == 2'b10) && (Funct3 == 3'b001) && (Funct7 == 7'b0000000)) // SLLI
-      ((ALUOp == 2'b10) && (Funct3 == 3'b101) && (Funct7 == 7'b0000000)) ||  // SLRI
-      ((ALUOp == 2'b01) && (Funct3 == 3'b001)) || // BNE
-      ((ALUOp == 2'b01) && (Funct3 == 3'b100)) // BLT
-
-  assign Operation[2] = ((ALUOp == 2'b10) && (Funct3 == 3'b000) && (Funct7 == 7b'0100000))|| // SUB
-      ((ALUOp == 2'b10) && (Funct3 == 3'b010));  // R\I-< slt
-      ((ALUOp == 2'b10) && (Funct3 == 3'b001) && (Funct7 == 7'b0000000)) || // SLLI
-      ((ALUOp == 2'b10) && (Funct3 == 3'b101) && (Funct7 == 7'b0000000)) ||  // SLRI
-      ((ALUOp == 2'b01) && (Funct3 == 3'b101)) // BGE
-
-  assign Operation[3] = (ALUOp == 2'b01) ||  // BEQ
-      ((ALUOp == 2'b10) && (Funct3 == 3'b101) && (Funct7 == 7'b0100000)) || // SRAI
-      ((ALUOp == 2'b01) && (Funct3 == 3'b001)) || // BNE
-      ((ALUOp == 2'b01) && (Funct3 == 3'b100)) || // BLT
-      ((ALUOp == 2'b01) && (Funct3 == 3'b101)) //BGE
-*/
 
 endmodule
