@@ -60,4 +60,5 @@ package Pipe_Buf_Reg_PKG;
     logic [31:0] Curr_Instr;
     logic        RWSel;
   } mem_wb_reg;
+
 endpackage
