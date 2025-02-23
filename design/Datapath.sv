@@ -40,6 +40,7 @@ module Datapath #(
     input logic JalrSel, // jalr Enable adicionado
     Halt, //seletor do halt
     RWSel // seletor do resultado
+
 );
 
   logic [PC_W-1:0] PC, PCPlus4, Next_PC;
