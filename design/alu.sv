@@ -12,6 +12,7 @@ module alu#(
         output logic[DATA_WIDTH-1:0] ALUResult
         );
     
+
         always_comb
         begin
             case(Operation)
