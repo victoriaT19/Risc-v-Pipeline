@@ -43,6 +43,7 @@ module tb_top;
     $stop;
   end
 
+
   always_comb begin : MEMORY
     if (wr && ~rd)
       $display($time, ": Memory [%d] written with value: [%X] | [%d]\n", addr, wr_data, wr_data);

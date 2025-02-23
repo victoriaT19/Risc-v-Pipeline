@@ -24,6 +24,16 @@ module imm_Gen (
         1'b0
       };
 
+      7'b1101111: /*JAL -> formato do valor imediato do jal*/
+      Imm_out = {inst_code[31] ? 11'h7FFFF : 11'b0, inst_code[31], inst_code[19:12], inst_code[20], inst_code[11], inst_code[30:21], 1'b0};
+
+      7'b1100111: /*JALR -> formato do valor imediato do jalr*/
+      Imm_out = {inst_code[31] ? 20'hFFFFF : 20'b0, inst_code[31:20]};
+
+      7'b0010011:  /*I-type -> formato do valor imediato das instruções de tipo I*/
+      Imm_out = {inst_code[31] ? 20'hFFFFF : 20'b0, inst_code[31:20]};
+
+
       default: Imm_out = {32'b0};
 
     endcase

@@ -36,12 +36,28 @@ module datamemory #(
 
     if (MemRead) begin
       case (Funct3)
-        3'b010:  //LW
-        rd <= Dataout;
+        3'b010:  // LW
+          rd <= Dataout;
+        3'b000: begin// LB
+          rd <= {{24{Dataout[31]}} , Dataout[7:0]};
+        end
+        3'b001: begin// LH
+          rd <= {{16{Dataout[31]}} ,Dataout[15:0]};
+        end
+        3'b100: // LBU
+          rd <= {24'b0, Dataout[7:0]};
         default: rd <= Dataout;
       endcase
     end else if (MemWrite) begin
       case (Funct3)
+        3'b000: begin  //SB 
+          Wr <= (raddress[1:0] ==2'b00) ? 4'b0001 : ((raddress[1:0]==2'b01) ? 4'b0010 : ((raddress[1:0]==2'b10) ? 4'b0100 : 4'b1000));
+          Datain <= (raddress[1:0]==2'b00) ? {{24{1'b0}}, wd[7:0]} : ((raddress[1:0]==2'b01) ? {{16{1'b0}}, {wd[7:0], {8{1'b0}}}} : ((raddress[1:0]==2'b10) ? {{8{1'b0}}, {wd[7:0], {16{1'b0}}}} : {wd[7:0], {24{1'b0}}}));
+        end
+        3'b001: begin  //SH
+          Wr <= (raddress[1:0] == 2'b00 || raddress[1:0] == 2'b01) ? 4'b0011 : 4'b1100;
+          Datain <= (raddress[1:0]==2'b00) || (raddress[1:0]==2'b01) ? {{16{1'b0}}, wd[15:0]} : {wd[15:0], {16{1'b0}}};
+        end
         3'b010: begin  //SW
           Wr <= 4'b1111;
           Datain <= wd;

@@ -1,5 +1,5 @@
 /*-----------------------------------------------------------------------------
--- Title		: Mem√≥ria da CPU
+-- Title		: MemÛria da CPU
 -- Project		: CPU 
 --------------------------------------------------------------------------------
 -- File			: Memoria32.sv
@@ -13,7 +13,7 @@
 -- Targets		: 
 -- Dependency	: 
 --------------------------------------------------------------------------------
--- Description	: Entidade respons√°vel pela leitura e escrita em mem√≥ria (dados de 32 bits).
+-- Description	: Entidade respons·vel pela leitura e escrita em memÛria (dados de 32 bits).
 --------------------------------------------------------------------------------
 -- Copyright (c) notice
 --		Universidade Federal de Pernambuco (UFPE).

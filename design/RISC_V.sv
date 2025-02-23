@@ -19,12 +19,13 @@ module riscv #(
 );
 
   logic [6:0] opcode;
-  logic ALUSrc, MemtoReg, RegWrite, MemRead, MemWrite, Branch;
+  logic ALUSrc, MemtoReg, RegWrite, MemRead, MemWrite, Branch, JalrSel, Halt;
   logic [1:0] ALUop;
   logic [1:0] ALUop_Reg;
   logic [6:0] Funct7;
   logic [2:0] Funct3;
   logic [3:0] Operation;
+  logic RWSel;
 
   Controller c (
       opcode,
@@ -34,7 +35,10 @@ module riscv #(
       MemRead,
       MemWrite,
       ALUop,
-      Branch
+      Branch,
+      JalrSel,
+      Halt,
+      RWSel
   );
 
   ALUController ac (
@@ -67,7 +71,10 @@ module riscv #(
       rd,
       addr,
       wr_data,
-      rd_data
+      rd_data,
+      JalrSel,
+      Halt,
+      RWSel
   );
 
 endmodule
