@@ -66,7 +66,7 @@ module Memoria32Data (
   assign inS1 = Datain[15:8];
   assign inS0 = Datain[7:0];
 
-  //Bancos de memÃ³rias (cada banco possui 65536 bytes)
+  //Bancos de memórias (cada banco possui 65536 bytes)
   //0
   ramOnChipData #(
       .ramSize(65536),
