@@ -50,7 +50,6 @@ Seu objetivo é implementar as instruções restantes listadas abaixo:
 - Victória Tauanny de Paula da Silva
 - Karoline Fonseca Viana
 - Luany Bezerra dos Reis
-- João Pedro Marinho de Souza 
 
 
 
